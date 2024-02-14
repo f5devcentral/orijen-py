@@ -1,14 +1,13 @@
 [tool.poetry]
-name = "orijen-py"
+name = "orijenpy"
 version = "0.1.0"
-description = ""
-authors = ["Kevin Reynolds <kevin@k11s.io>"]
+description = "base package and module for project orijen used for F5XC tenant automation"
+authors = ["Kevin Reynolds <k.reynolds@f5.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-requests = "^2.31.0"
-tenacity = "^8.2.3"
+uplink = "^0.9.7"
 
 
 [build-system]

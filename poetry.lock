@@ -143,18 +143,50 @@ socks = ["PySocks (>=1.5.6,!=1.5.7)"]
 use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
-name = "tenacity"
-version = "8.2.3"
-description = "Retry code until it succeeds"
+name = "six"
+version = "1.16.0"
+description = "Python 2 and 3 compatibility utilities"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 files = [
-    {file = "tenacity-8.2.3-py3-none-any.whl", hash = "sha256:ce510e327a630c9e1beaf17d42e6ffacc88185044ad85cf74c0a8887c6a0f88c"},
-    {file = "tenacity-8.2.3.tar.gz", hash = "sha256:5398ef0d78e63f40007c1fb4c0bff96e1911394d2fa8d194f77619c05ff6cc8a"},
+    {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
+    {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
 ]
 
+[[package]]
+name = "uplink"
+version = "0.9.7"
+description = "A Declarative HTTP Client for Python."
+optional = false
+python-versions = "*"
+files = [
+    {file = "uplink-0.9.7-py2.py3-none-any.whl", hash = "sha256:4b50be0bb657ffd1c48e2c20bdf8538d512fe4b9f0520247d46249912ed19d15"},
+    {file = "uplink-0.9.7.tar.gz", hash = "sha256:8d5bff42fedfc1bec1c2959b7a15fc1354e1a32ead33facaeadfa76f7c5d68a2"},
+]
+
+[package.dependencies]
+requests = ">=2.18.0"
+six = ">=1.13.0"
+uritemplate = ">=3.0.0"
+
 [package.extras]
-doc = ["reno", "sphinx", "tornado (>=4.5)"]
+aiohttp = ["aiohttp (>=2.3.0)"]
+marshmallow = ["marshmallow (>=2.15.0)"]
+pydantic = ["pydantic (>=1.6.1)"]
+tests = ["pytest", "pytest-asyncio", "pytest-cov", "pytest-mock", "pytest-twisted"]
+twisted = ["twisted (<=17.9.0)", "twisted (<=19.2.1)", "twisted (>=17.1.0)"]
+typing = ["typing (>=3.6.4)"]
+
+[[package]]
+name = "uritemplate"
+version = "4.1.1"
+description = "Implementation of RFC 6570 URI Templates"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "uritemplate-4.1.1-py2.py3-none-any.whl", hash = "sha256:830c08b8d99bdd312ea4ead05994a38e8936266f84b9a7878232db50b044e02e"},
+    {file = "uritemplate-4.1.1.tar.gz", hash = "sha256:4346edfc5c3b79f694bccd6d6099a322bbeb628dbf2cd86eea55a456ce5124f0"},
+]
 
 [[package]]
 name = "urllib3"
@@ -176,4 +208,4 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "7cb00ec3ee47ffd9d687f08cbe089d89e4672703271d0136522983710dd924af"
+content-hash = "be447bd93a252e17453517522bf101ed915dfa81124ed74b797c274f6f9739a7"
