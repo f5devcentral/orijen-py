@@ -15,3 +15,15 @@ _ConnectionTimeout_: The request timed out while trying to connect to the remote
 _ServerTimeout_: The server did not send any data in the allotted amount of time.
 _SSLError_: An SSL error occurred.
 _InvalidURL_: URL used for fetching is malformed.
+
+
+Make an HTTP session class
+
+make individual files for each resource type.
+
+Pass the session class into
+
+api = xc.Session(tenant, token)
+ns = NS(session)
+ns.list()
+ns.get('default')
