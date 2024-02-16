@@ -1,4 +1,4 @@
-from uplink import Consumer, Path, Body, json, get, post
+from uplink import Consumer, Path, Body, json, get, post, put
 from orijenpy import helper
 
 
@@ -22,6 +22,12 @@ class User(Consumer):
     @post('/api/web/custom/namespaces/{namespace}/users/cascade_delete')
     def delete(self, payload: Body, namespace: Path = 'system'):
         '''Delete a User'''
+        pass
+
+    @json
+    @put('/api/web/custom/namespaces/{namespace}/users/group_add')
+    def group(self, payload: Body, namespace: Path = 'system'):
+        '''Configure Group(s) for a user'''
         pass
 
     @staticmethod
@@ -51,4 +57,11 @@ class User(Consumer):
         return {
             "email": email,
             "namespace": namespace
+        }
+
+    @staticmethod
+    def group_payload(user: str, group_names: list):
+        return {
+            "group_names": group_names,
+            "username": user
         }

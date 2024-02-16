@@ -1,6 +1,5 @@
 from urllib.parse import urlparse
-from uplink import retry, error_handler, returns
-import re
+from uplink import retry, error_handler, response_handler, ratelimit, returns
 from orijenpy import exception
 
 
@@ -12,33 +11,16 @@ def common_decorators(cls):
             backoff=retry.backoff.jittered(multiplier=2) 
         ),
         returns.json,
-        error_handler(exception.raise_xc_error)
+        ratelimit(calls=50, period=50),
+        error_handler(exception.raise_xc_error),
+        response_handler(exception.xc_status)
     ]
     for decorator in common_decorators:
         cls = decorator(cls)
     return cls
 
 
-def validate_url(url: str) -> str:
-    '''Customize this to validate an XC console URL'''
-    parsed_url = urlparse(url)
-    if parsed_url.scheme and parsed_url.netloc:
-        stripped_url = f"{parsed_url.scheme}://{parsed_url.netloc}{parsed_url.path.rstrip('/')}"
-        return stripped_url
-    else:
-        raise exception.InvalidURLException("Invalid URL")
-    
-
 def filter_items(dict: dict, keys: list) -> dict:
     items = dict.get('items', [])
     filtered_items = [{key: d[key] for key in keys if key in d} for d in items]
     return {'items': filtered_items}
-
-
-def is_valid_email(email):
-    pattern = r'^[\w\.-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$'
-    if re.match(pattern, email):
-        return email
-    else:
-        raise exception.InvalidEmailException("Invalid Email")
-    

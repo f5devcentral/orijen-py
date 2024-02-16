@@ -1,4 +1,8 @@
 # Project Orijen Python Client
+This project defines an interface for interacting with the XC API.
+
+Its scope is limited to CRUD against the XC API -- utility procedures like retrieving response data to clean a tenant, reporting to 3rd party systems on XC quota usage, or retieving SQS messages for labs/onboarding are handled by other tools.
+
 
 ## TBD
 - Handle 400s with a response function
@@ -6,7 +10,7 @@
 - Unified/More sane schema handling
 
 
-## Usage
+## Usage Examples
 ```shell
 >>> from orijenpy import session, ns
 >>> api = session(tenant_url="https://f5-gsa.console.ves.volterra.io", api_token="dLsJqnSsgxxxxxxxxxxxxxxr=")
