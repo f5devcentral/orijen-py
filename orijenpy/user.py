@@ -16,17 +16,26 @@ class User(Consumer):
     @json
     @post('/api/web/custom/namespaces/{namespace}/user_roles')
     def create(self, payload: Body, namespace: Path = 'system'):
-        """Create a User"""
+        """
+        Create a User
+        Use create_payload() to build Body
+        """
 
     @json
     @post('/api/web/custom/namespaces/{namespace}/users/cascade_delete')
     def delete(self, payload: Body, namespace: Path = 'system'):
-        """Delete a User"""
+        """
+        Delete a User
+        use delete_payload() to build Body
+        """
 
     @json
     @put('/api/web/custom/namespaces/{namespace}/users/group_add')
     def group(self, payload: Body, namespace: Path = 'system'):
-        """Configure Group(s) for a user"""
+        """
+        Configure Group(s) for a user
+        Use group_payload to build Body
+        """
 
     @staticmethod
     def create_payload(
@@ -61,7 +70,10 @@ class User(Consumer):
 
     @staticmethod
     def group_payload(user: str, group_names: list):
-        """Payload for group modifications"""
+        """
+        Payload for group modifications
+        *group_names is being replaced
+        """
         return {
             "group_names": group_names,
             "username": user

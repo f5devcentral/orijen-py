@@ -20,17 +20,26 @@ class APIcred(Consumer):
     @json
     @post('/api/web/namespaces/{namespace}/api_credentials')
     def create(self, payload: Body, namespace: Path = 'system'):
-        """Create an API Credential"""
+        """
+        Create an API Credential
+        Use create_payload() to build Body
+        """
 
     @json
     @post('api/web/namespaces/{namespace}/renew/api_credentials')
-    def renew(self, namespace: Path = 'system'):
-        """Renew an API Credential"""
+    def renew(self, payload: Body, namespace: Path = 'system'):
+        """
+        Renew an API Credential
+        Use renew_payload() to build Body
+        """
 
     @json
     @post('/api/web/namespaces/{namespace}/revoke/api_credentials')
     def revoke(self, payload: Body, namespace: Path = 'system'):
-        """Revoke an API Credential"""
+        """
+        Revoke an API Credential
+        Use revoke_payload() to build Body
+        """
 
     @staticmethod
     def create_payload(name: str, expiration_days: int, namespace: str = 'system'):
@@ -79,17 +88,26 @@ class SVCcred(Consumer):
     @json
     @post('/api/web/namespaces/{namespace}/service_credentials')
     def create(self, payload: Body, namespace: Path = 'system'):
-        """Create an Service Credential"""
+        """
+        Create an Service Credential
+        Use create_payload() to build Body
+        """
 
     @json
     @post('api/web/namespaces/{namespace}/renew/service_credentials')
     def renew(self, payload: Body, namespace: Path = 'system'):
-        """Renew a Service Credential"""
+        """
+        Renew a Service Credential
+        Use renew_payload() to build Body
+        """
 
     @json
     @post('/api/web/namespaces/{namespace}/revoke/service_credentials')
     def revoke(self, payload: Body, namespace: Path = 'system'):
-        """Revoke a Service Credential"""
+        """
+        Revoke a Service Credential
+        Use revoke_payload() to build Body
+        """
 
     @staticmethod
     def create_payload(

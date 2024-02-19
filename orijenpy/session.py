@@ -27,7 +27,7 @@ class Session:
         parsed_url = urlparse(url)
         if parsed_url.scheme and parsed_url.netloc:
             stripped_url = f"{parsed_url.scheme}://{parsed_url.netloc}{parsed_url.path.rstrip('/')}"
-            return stripped_url
         else:
             raise exception.OrijenXCException("Invalid Tenant URL")
+        return stripped_url
         

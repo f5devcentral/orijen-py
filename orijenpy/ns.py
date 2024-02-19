@@ -20,7 +20,10 @@ class NS(Consumer):
     @json
     @post('/api/web/namespaces')
     def create(self, payload: Body):
-        """Create a Namespace"""
+        """
+        Create a Namespace
+        Use create_payload() to build Body
+        """
 
     @json
     @post('/api/web/namespaces/{name}/cascade_delete')
