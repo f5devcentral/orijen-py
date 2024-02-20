@@ -1,7 +1,7 @@
 """Module providing XC session"""
 from urllib.parse import urlparse
 import requests
-from orijenpy import exception
+from orijenpy import helper
 
 class Session:
     """Class providing request session with auth"""
@@ -19,7 +19,7 @@ class Session:
             r = self._session.get(self._tenant_url + '/api/web/custom/namespaces/system/whoami')
             r.raise_for_status()
         except Exception as e:
-            raise exception.OrijenXCException("Invalid Token") from e
+            raise helper.OrijenXCException("Invalid Token") from e
 
     @staticmethod
     def validate_url(url) -> str:
@@ -28,6 +28,6 @@ class Session:
         if parsed_url.scheme and parsed_url.netloc:
             stripped_url = f"{parsed_url.scheme}://{parsed_url.netloc}{parsed_url.path.rstrip('/')}"
         else:
-            raise exception.OrijenXCException("Invalid Tenant URL")
+            raise helper.OrijenXCException("Invalid Tenant URL")
         return stripped_url
         
