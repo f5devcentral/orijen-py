@@ -8,6 +8,9 @@ Its scope is limited to CRUD against the XC API -- utility procedures like retri
 - Handle 400s with a response function
 - Handle errors post retry logic
 - Unified/More sane schema handling
+- There is no endpoint to get a single service credential. Can they be renewed or revoked?
+
+
 
 
 ## Usage Examples

@@ -81,10 +81,6 @@ class SVCcred(Consumer):
     def list(self, namespace: Path = 'system'):
         """List all Service Credentials"""
 
-    @get('/api/web/namespaces/{namespace}/service_credentials/{name}')
-    def get(self, name: Path, namespace: Path = 'system'):
-        """Get a single Service Credential"""
-
     @json
     @post('/api/web/namespaces/{namespace}/service_credentials')
     def create(self, payload: Body, namespace: Path = 'system'):

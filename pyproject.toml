@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.9"
 uplink = "^0.9.7"
 requests = "^2.31.0"
+pytest = "^8.0.1"
 
 
 [build-system]
