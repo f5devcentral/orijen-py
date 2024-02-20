@@ -1,6 +1,7 @@
 """
 Module for Namespace Roles
 https://docs.cloud.f5.com/docs/api/namespace-role
+Need to unwind this class -- not useful
 """
 from uplink import Consumer, Path, Body, json, get, post, put
 from orijenpy import helper
@@ -20,6 +21,7 @@ class NSrole(Consumer):
     def get(self, namespace: Path, name: Path,):
         """Get a single Namespace Role"""
 
+    @json
     @post('/api/web/namespaces/{namespace}/namespace_roles')
     def create(self, payload: Body, namespace: Path):
         """
@@ -27,10 +29,12 @@ class NSrole(Consumer):
         Use create_payload() to build Body
         """
 
+    @json
     @post('/api/web/custom/namespaces/{namespace}/user_groups/{name}')
     def delete(self, name: Path, namespace: Path = 'system'):
         """Delete a group"""
 
+    @json
     @put('/api/web/custom/namespaces/{namespace}/user_groups/{name}/assign_namespace_roles')
     def role_assign(self, payload: Body, name: Path, namespace: Path = 'system'):
         """
@@ -38,6 +42,7 @@ class NSrole(Consumer):
         Use role_payload() to build Body
         """
 
+    @json
     @put('/api/web/custom/namespaces/{namespace}/user_groups/{name}/remove_namespace_roles')
     def role_remove(self, payload: Body, name: Path, namespace: Path = 'system'):
         """
