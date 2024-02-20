@@ -28,13 +28,3 @@ def filter_items(d: dict, keys: list) -> dict:
     filtered_items = [{key: d[key] for key in keys if key in d} for d in items]
     return {'items': filtered_items}
 
-def test_session():
-    """
-    Create a Session object needed for testing
-    """
-    tenant_url = os.getenv('ORIJEN_TENANT_URL')
-    token = os.getenv('ORIJEN_TOKEN')
-    if None in [tenant_url, token]:
-        raise EnvironmentError("Missing env variable(s) needed for testing.")
-    api = session(tenant_url=tenant_url, api_token=token)
-    return api
