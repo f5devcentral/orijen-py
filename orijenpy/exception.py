@@ -1,5 +1,6 @@
 """Exception handling for the package"""
 import sys
+import json
 from uplink import error_handler, response_handler
 
 def orijen_handler(exc_type, exc_value, tb, debug: bool = False):

@@ -1,4 +1,7 @@
-"""Module for Users"""
+"""
+Module for Users
+https://docs.cloud.f5.com/docs/api/user
+"""
 from uplink import Consumer, Path, Body, json, get, post, put
 from orijenpy import helper
 

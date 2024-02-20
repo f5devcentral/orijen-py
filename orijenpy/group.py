@@ -27,20 +27,20 @@ class Group(Consumer):
 
     @json
     @post('/api/web/custom/namespaces/{namespace}/user_groups/{name}')
-    def delete(self, namespace: Path = 'system'):
+    def delete(self, name: Path, namespace: Path = 'system'):
         """Delete a group"""
 
     @json
     @put('/api/web/custom/namespaces/{namespace}/user_groups/{name}/assign_namespace_roles')
-    def role_assign(self, payload: Body, namespace: Path = 'system'):
+    def role_assign(self, payload: Body, name: Path, namespace: Path = 'system'):
         """
         Assign roles for a group
         Use role_payload() to build Body
         """
 
     @json
-    @put('/api/web/custom/namespaces/system/user_groups/{name}/remove_namespace_roles')
-    def role_remove(self, payload: Body, namespace: Path = 'system'):
+    @put('/api/web/custom/namespaces/{namespace}/user_groups/{name}/remove_namespace_roles')
+    def role_remove(self, payload: Body, name: Path, namespace: Path = 'system'):
         """
         Remove roles for a group
         Use role_payload() to build Body

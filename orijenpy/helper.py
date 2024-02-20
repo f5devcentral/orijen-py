@@ -1,7 +1,6 @@
 """Package helpers"""
-import os
 from uplink import retry, error_handler, response_handler, ratelimit, returns
-from orijenpy import exception, session
+from orijenpy import exception
 
 
 def common_decorators(cls):
