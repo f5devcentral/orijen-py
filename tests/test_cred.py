@@ -1,6 +1,6 @@
 """Cred classes tests"""
 import pytest
-from orijenpy import helper, apicred, svccred
+from orijenpy import apicred, svccred
 
 @pytest.mark.usefixtures("test_session")
 class TestAPIcred:

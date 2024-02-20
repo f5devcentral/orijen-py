@@ -13,4 +13,4 @@ def test_session():
     if None in [tenant_url, token]:
         raise EnvironmentError("Missing env variable(s) needed for testing.")
     api = session(tenant_url=tenant_url, api_token=token)
-    return api
+    yield api
