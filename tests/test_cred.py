@@ -2,32 +2,24 @@
 import pytest
 from orijenpy import helper, apicred, svccred
 
+@pytest.mark.usefixtures("test_session")
 class TestAPIcred:
     """Class used to test APIcred"""
-    @pytest.fixture
-    def this_apicred(self):
-        """Method returns APIcred instance"""
-        api = helper.test_session()
-        return apicred(api)
 
-    def test_list(self, this_apicred):
+    def test_list(self, test_session):
         """Method to test list()"""
-        assert len(this_apicred.list()['items'])>0
+        assert len(apicred(test_session).list()['items'])>0
 
-    def test_get(self, this_apicred):
+    def test_get(self, test_session):
         """Method to test get()"""
-        r = this_apicred.list()['items'][0]['name']
-        assert isinstance(this_apicred.get(r), dict)
+        r = apicred(test_session).list()['items'][0]['name']
+        assert isinstance(apicred(test_session).get(r), dict)
 
+@pytest.mark.usefixtures("test_session")
 class TestSVCcred:
     """Class used to test SVCcred"""
-    @pytest.fixture
-    def this_svccred(self):
-        """Method returns APIcred instance"""
-        api = helper.test_session()
-        return svccred(api)
 
-    def test_list(self, this_svccred):
+    def test_list(self, test_session):
         """Method to test list()"""
-        assert len(this_svccred.list()['items'])>0
+        assert len(svccred(test_session).list()['items'])>0
 
