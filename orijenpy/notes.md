@@ -1,29 +1,7 @@
 # Notes
 
-```python
-try:
-    repo = github.create_repo(name="myproject", auto_init=True)
-except github.exceptions.ConnectionError:
-    # Handle client socket error:
-    ...
-```
+## Tickets
 
-Here are the HTTP client exceptions that are exposed through the _exceptions_ property:
-_BaseClientException:_ Base exception for client connection errors.
-_ConnectionError_: A client socket error occurred.
-_ConnectionTimeout_: The request timed out while trying to connect to the remote server.
-_ServerTimeout_: The server did not send any data in the allotted amount of time.
-_SSLError_: An SSL error occurred.
-_InvalidURL_: URL used for fetching is malformed.
+### Roles
+[api_endpoint](https://docs.cloud.f5.com/docs/api/role#operation/ves.io.schema.role.CustomAPI.CustomGet) Mostly return 500s.
 
-
-Make an HTTP session class
-
-make individual files for each resource type.
-
-Pass the session class into
-
-api = xc.Session(tenant, token)
-ns = NS(session)
-ns.list()
-ns.get('default')

@@ -45,12 +45,16 @@ class User(Consumer):
             email: str,
             first_name: str,
             last_name: str,
-            group_names: list = [],
-            namespace_roles: list = [],
+            group_names = None,
+            namespace_roles = None,
             idm_type: str = 'SSO',
             namespace: str = 'system'
         ):
         """Payload for Create"""
+        if group_names is None:
+            group_names = []
+        if namespace_roles is None:
+            namespace_roles = []
         return {
             "email": email,
             "first_name": first_name,

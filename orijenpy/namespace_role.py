@@ -3,7 +3,7 @@ Module for Namespace Roles
 https://docs.cloud.f5.com/docs/api/namespace-role
 Need to unwind this class -- not useful
 """
-from uplink import Consumer, Path, Body, json, get, post, put
+from uplink import Consumer, Path, Body, json, get, post, put # pylint: disable=unused-import
 from orijenpy import helper
 
 
@@ -57,10 +57,7 @@ class NSrole(Consumer):
             user: list,
             role: list
         ):
-        """
-        Payload for Create
-        See https://docs.cloud.f5.com/docs/api/namespace-role#operation/ves.io.schema.namespace_role.API.Create
-        """
+        """Payload for Create"""
         return {
             "metadata": {
                 "name": name,

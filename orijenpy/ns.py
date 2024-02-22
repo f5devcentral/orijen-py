@@ -1,5 +1,5 @@
 """Module for Namespaces"""
-from uplink import Consumer, Path, Body, json, get, post
+from uplink import Consumer, Path, Body, json, get, post # pylint: disable=unused-import
 from orijenpy import helper
 
 
