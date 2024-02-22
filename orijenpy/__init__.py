@@ -7,3 +7,4 @@ from .user import User as user
 from .namespace_role import NSrole as nsrole
 from .group import Group as group
 from .role import Role as role
+from .tenant import Tenant as tenant
