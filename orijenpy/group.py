@@ -1,5 +1,5 @@
 """Module for Groups"""
-from uplink import Consumer, Path, Body, json, get, post, put
+from uplink import Consumer, Path, Body, json, get, post, put # pylint: disable=unused-import
 from orijenpy import helper
 
 

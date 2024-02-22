@@ -62,4 +62,3 @@ def filter_items(d: dict, keys: list) -> dict:
     items = d.get('items', [])
     filtered_items = [{key: d[key] for key in keys if key in d} for d in items]
     return {'items': filtered_items}
-

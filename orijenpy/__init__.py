@@ -6,3 +6,4 @@ from .cred import SVCcred as svccred
 from .user import User as user
 from .namespace_role import NSrole as nsrole
 from .group import Group as group
+from .role import Role as role
