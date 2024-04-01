@@ -2,8 +2,8 @@
 Module for Tenant Methods
 https://docs.cloud.f5.com/docs/api/tenant
 """
-from uplink import Consumer, QueryMap, Path, Body, json, get, post, put, delete # pylint: disable=unused-import
 from datetime import datetime
+from uplink import Consumer, QueryMap, Path, Body, json, get, post, put, delete # pylint: disable=unused-import
 from orijenpy import helper
 
 @helper.common_decorators
@@ -47,7 +47,7 @@ class Tenant(Consumer):
         """
 
     @staticmethod
-    def login_events_in_tf_payload(start: datetime, end: datetime, first: int = 0, maximum: int = 0):
+    def login_events_in_tf_payload(start: datetime, end: datetime, first: int = 0, maximum: int = 0): # pylint: disable=line-too-long
         """Payload for ogin_events_in_tf"""
         return {
             "end": helper.xc_format_date(end),
