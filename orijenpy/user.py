@@ -37,7 +37,7 @@ class User(Consumer):
     def group(self, payload: Body, namespace: Path = 'system'):
         """
         Configure Group(s) for a user
-        Use group_payload to build Body
+        Use group_payload() to build Body
         """
 
     @staticmethod

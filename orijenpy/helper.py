@@ -1,5 +1,6 @@
 """Package helpers"""
 import sys
+from datetime import datetime
 from uplink import retry,ratelimit, response_handler, error_handler
 
 def common_decorators(cls):
@@ -57,8 +58,15 @@ def xc_error_handler(consumer):
     if isinstance(consumer.exceptions.InvalidURL):
         raise OrijenXCException("InvalidURL")
 
-def filter_items(d: dict, keys: list) -> dict:
+def xc_filter_items(d: dict, keys: list) -> dict:
     """Fuction to filter XC reponse with 'items' dict"""
     items = d.get('items', [])
     filtered_items = [{key: d[key] for key in keys if key in d} for d in items]
     return {'items': filtered_items}
+
+def xc_format_date(date_obj: datetime):
+    """
+    Function to format dates to what the console expects
+    in
+    """
+    return date_obj.strftime("%Y-%m-%dT%H:%M:%SZ")
