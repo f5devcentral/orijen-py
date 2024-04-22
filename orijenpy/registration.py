@@ -18,6 +18,7 @@ class Registration(Consumer):
     def list(self, namespace: Path ='system'):
         """List Registrations"""
 
+    @json
     @post('/api/register/namespaces/{namespace}/listregistrationsbystate')
     def list_by_state(self, payload: Body, namespace: Path ='system'):
         """List Registrations"""
@@ -26,6 +27,7 @@ class Registration(Consumer):
     def get(self, name: Path, namespace: Path ='system'):
         """Get a single Registration"""
 
+    @json
     @post('/api/register/namespaces/{namespace}/registration/{name}/approve')
     def approve(self, payload: Body, name: Path, namespace: Path ='system'):
         """
@@ -34,7 +36,7 @@ class Registration(Consumer):
         """
 
     @staticmethod
-    def ls_by_state_payload(state: str = 'NEW', namespace: str = 'system') -> dict:
+    def list_by_state_payload(state: str = 'NEW', namespace: str = 'system') -> dict:
         """
         Payload for list_by_state
         """

@@ -39,6 +39,7 @@ class Tenant(Consumer):
     def get_idm_settings(self):
         """Gets tenant IDM settings"""
 
+    @json
     @post('/api/web/namespaces/system/tenant/idm/events/login_in_time')
     def login_events_in_tf(self, payload: Body):
         """
