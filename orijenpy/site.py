@@ -18,7 +18,7 @@ class Site(Consumer):
     def list(self, namespace: Path ='system', report_fields: Query = None, report_status_fields: Query = None ):
         """List Sites"""
 
-    @get('/api/config/namespaces/{namespace}/sites{name}')
+    @get('/api/config/namespaces/{namespace}/sites/{name}')
     def get(self, name: Path, namespace: Path ='system'):
         """Get a single Site"""
 
