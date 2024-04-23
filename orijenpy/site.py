@@ -38,6 +38,14 @@ class Site(Consumer):
         Use upgrade_payload() to build Body
         """
 
+    @json
+    @post('/api/config/namespaces/{namespace}/sites/{name}/state')
+    def state(self, payload: Body, name: Path, namespace: Path ='system'):
+        """
+        Update site state
+        Use state_payload() to build Body
+        """
+
     @staticmethod
     def upgrade_payload(name: str, version: str, namespace: str = 'system') -> dict:
         """
@@ -49,4 +57,15 @@ class Site(Consumer):
             "name": name,
             "namespace": namespace,
             "version": version
+        }
+    
+    @staticmethod
+    def state_payload(name: str, namespace: str = 'system', state: str = 'DECOMISSIONING') -> dict:
+        """
+        Payload for decom_site
+        """
+        return {
+            "name": name,
+            "namespace": namespace,
+            "state": state
         }
