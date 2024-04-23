@@ -3,7 +3,7 @@ Module for Site Methods
 https://docs.cloud.f5.com/docs/api/site
 """
 from datetime import datetime
-from uplink import Consumer, QueryMap, Path, Body, json, get, post, put, delete # pylint: disable=unused-import
+from uplink import Consumer, Query, Path, Body, json, get, post, put, delete # pylint: disable=unused-import
 from orijenpy import helper
 
 @helper.common_decorators
@@ -15,7 +15,7 @@ class Site(Consumer):
         super().__init__(base_url=session._tenant_url, client=session._session)
 
     @get('/api/config/namespaces/{namespace}/sites')
-    def list(self, namespace: Path ='system'):
+    def list(self, namespace: Path ='system', report_fields: Query = None, report_status_fields: Query = None ):
         """List Sites"""
 
     @get('/api/config/namespaces/{namespace}/sites{name}')
