@@ -9,7 +9,7 @@ from orijenpy import helper
 @helper.common_decorators
 class Site(Consumer):
     """
-    Class for Tenant Methods
+    Class for Site Methods
     """
     def __init__(self, session):
         super().__init__(base_url=session._tenant_url, client=session._session)
