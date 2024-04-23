@@ -60,7 +60,7 @@ class Site(Consumer):
         }
     
     @staticmethod
-    def state_payload(name: str, namespace: str = 'system', state = 'DECOMISSIONING') -> dict:
+    def state_payload(name: str, namespace: str = 'system', state = 'DECOMMISSIONING') -> dict:
         """
         Payload for decom_site
         """
