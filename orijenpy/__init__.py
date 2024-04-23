@@ -8,3 +8,5 @@ from .namespace_role import NSrole as nsrole
 from .group import Group as group
 from .role import Role as role
 from .tenant import Tenant as tenant
+from .registration import Registration as registration
+from .site import Site as site

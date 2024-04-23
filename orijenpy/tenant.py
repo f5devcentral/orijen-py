@@ -39,6 +39,7 @@ class Tenant(Consumer):
     def get_idm_settings(self):
         """Gets tenant IDM settings"""
 
+    @json
     @post('/api/web/namespaces/system/tenant/idm/events/login_in_time')
     def login_events_in_tf(self, payload: Body):
         """
@@ -48,7 +49,7 @@ class Tenant(Consumer):
 
     @staticmethod
     def login_events_in_tf_payload(start: datetime, end: datetime, first: int = 0, maximum: int = 0): # pylint: disable=line-too-long
-        """Payload for ogin_events_in_tf"""
+        """Payload for login_events_in_tf"""
         return {
             "end": helper.xc_format_date(end),
             "first": first,
