@@ -56,5 +56,27 @@ class Registration(Consumer):
             "name": name,
             "state": state,
             "passport" : passport
-        }
+    }
+    
+    @staticmethod
+    def _get_reg_name(object: str) -> str:
+        """
+        Takes a registration object, returns the name
+        """
+        return object['name']
+    
+    @staticmethod
+    def _get_passport(object: dict) -> dict:
+        """
+        Takes a registration object, returns the passport
+        """
+        return object['get_spec']['passport']
+    
+    @staticmethod
+    def _get_cluster_name(object: str) -> str:
+        """
+        Takes a registration object, returns the passport
+        """
+        return object['get_spec']['passport']['cluster_name']
+    
     
