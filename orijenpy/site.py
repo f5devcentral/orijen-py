@@ -39,7 +39,7 @@ class Site(Consumer):
         """
 
     @json
-    @post('/api/config/namespaces/{namespace}/sites/{name}/state')
+    @post('/api/register/namespaces/{namespace}/site/{name}/state')
     def state(self, payload: Body, name: Path, namespace: Path ='system'):
         """
         Update site state
