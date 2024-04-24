@@ -28,7 +28,10 @@ class NS(Consumer):
     @json
     @post('/api/web/namespaces/{name}/cascade_delete')
     def delete(self, payload: Body, name: Path):
-        """Cascade delete a namespace"""
+        """
+        Cascade delete a Namespace
+        use delete_payload() to build Body
+        """
   
     @staticmethod
     def create_payload(name: str, description: str):
