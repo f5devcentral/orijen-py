@@ -6,13 +6,11 @@ authors = ["Kevin Reynolds <k.reynolds@f5.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 uplink = "^0.9.7"
 requests = "^2.31.0"
 datetime = "^5.4"
 pytest = "^8.0.1"
-
-
 
 [build-system]
 requires = ["poetry-core"]

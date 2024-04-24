@@ -45,8 +45,8 @@ class User(Consumer):
             email: str,
             first_name: str,
             last_name: str,
-            group_names = None,
-            namespace_roles = None,
+            group_names: list|None=None,  # [unsupported-binary-operation]
+            namespace_roles: list|None=None,  # [unsupported-binary-operation]
             idm_type: str = 'SSO',
             namespace: str = 'system'
         ):
