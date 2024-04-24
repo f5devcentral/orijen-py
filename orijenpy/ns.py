@@ -27,13 +27,9 @@ class NS(Consumer):
 
     @json
     @post('/api/web/namespaces/{name}/cascade_delete')
-    def delete(self, name: Path):
+    def delete(self, payload: Body, name: Path):
         """Cascade delete a namespace"""
-        payload = {
-            'name': name
-        }
-        return payload
-
+  
     @staticmethod
     def create_payload(name: str, description: str):
         """Payload for create"""
@@ -47,5 +43,12 @@ class NS(Consumer):
                 'namespace': ''
             },
             'spec': {}
+        }
+
+    @staticmethod
+    def delete_payload(name: str):
+        """Payload for delete"""
+        return {
+            'name:': name
         }
     
