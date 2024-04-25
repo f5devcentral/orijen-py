@@ -2,7 +2,7 @@
 Module for Site Methods
 https://docs.cloud.f5.com/docs/api/site
 """
-from uplink import Consumer, Path, Body, json, get, post #pylint: disable=unused-import
+from uplink import Consumer, Path, Body, Query, json, get, post #pylint: disable=unused-import
 from orijenpy import helper
 
 @helper.common_decorators
