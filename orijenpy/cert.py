@@ -1,5 +1,5 @@
 """Module for Certificate"""
-from uplink import Consumer, Path, Body, json, get, post, put, delete
+from uplink import Consumer, Path, Body, json, get, post, put, delete #pylint: disable=unused-import
 from orijenpy import helper
 
 
