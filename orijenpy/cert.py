@@ -4,10 +4,10 @@ from orijenpy import helper
 
 
 @helper.common_decorators
-class Certificate(Consumer):
+class Cert(Consumer):
     """Class for Certificates"""
     def __init__(self, session):
-        super(Certificate, self).__init__(base_url=session._tenant_url, client=session._session)
+        super(Cert, self).__init__(base_url=session._tenant_url, client=session._session)
 
     @get('/api/config/namespaces/{namespace}/certificates')
     def list(self, namespace: Path):
@@ -29,33 +29,33 @@ class Certificate(Consumer):
 
     @json
     @delete('/api/config/namespaces/{namespace}/certificates/{name}')
-    def replace(self, payload: Body, name: Path, namespace: Path, ):
+    def delete(self, payload: Body, name: Path, namespace: Path, ):
         """Delete a Certificate"""
 
     @staticmethod
-    def create_payload(name: str, namespace: str, certificate: str, key: str ):
+    def create_payload(name: str, namespace: str, cert: str, key: str, description: str = None, ):
         """Payload for create or replace"""
         return {
             'metadata': {
                 'name': name,
-                'namespace': namespace
+                'namespace': namespace,
+                'description': description
             },
             'spec': {
-                'certificate_url': f'string:///{certificate}',
+                'certificate_url': f'string:///{cert}',
                 'private_key': {
-                    'blindfold_secret_info': {
-                        'location': f'string:///{key}'
+                    '"clear_secret_info":': {
+                        'url': f'string:///{key}'
                     }
                 }
             }
         }
-    
+
     @staticmethod
-    def delete_payload(name: str, namespace: str, fail_if_referred: bool = True ):
+    def delete_payload(name: str, namespace: str, fail_if_referred: bool = True):
         """Payload for create or replace"""
         return {
             "fail_if_referred": fail_if_referred,
             "name": name,
             "namespace": namespace
         }
-    

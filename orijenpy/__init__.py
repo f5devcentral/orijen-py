@@ -10,3 +10,4 @@ from .role import Role as role
 from .tenant import Tenant as tenant
 from .registration import Registration as registration
 from .site import Site as site
+from .cert import Cert as cert
