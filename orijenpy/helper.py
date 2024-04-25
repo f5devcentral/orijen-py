@@ -1,7 +1,7 @@
 """Package helpers"""
 import sys
 from datetime import datetime
-from uplink import retry,ratelimit, response_handler, error_handler
+from uplink import retry, ratelimit, response_handler, error_handler
 
 def common_decorators(cls):
     """Function to package all uplink decorators for reuse"""
@@ -67,6 +67,5 @@ def xc_filter_items(d: dict, keys: list) -> dict:
 def xc_format_date(date_obj: datetime):
     """
     Function to format dates to what the console expects
-    in
     """
     return date_obj.strftime("%Y-%m-%dT%H:%M:%SZ")
