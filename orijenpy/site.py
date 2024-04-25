@@ -2,8 +2,7 @@
 Module for Site Methods
 https://docs.cloud.f5.com/docs/api/site
 """
-from datetime import datetime
-from uplink import Consumer, Query, Path, Body, json, get, post, put, delete # pylint: disable=unused-import
+from uplink import Consumer, Path, Body, json, get, post #pylint: disable=unused-import
 from orijenpy import helper
 
 @helper.common_decorators
@@ -58,7 +57,7 @@ class Site(Consumer):
             "namespace": namespace,
             "version": version
         }
-    
+
     @staticmethod
     def state_payload(name: str, namespace: str = 'system', state = 'DECOMMISSIONING') -> dict:
         """

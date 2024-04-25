@@ -7,7 +7,7 @@ from orijenpy import helper
 class APIcred(Consumer):
     """Class for API Credentials"""
     def __init__(self, session):
-        super(APIcred, self).__init__(base_url=session._tenant_url, client=session._session)
+        super().__init__(base_url=session._tenant_url, client=session._session)
 
     @get('/api/web/namespaces/{namespace}/api_credentials')
     def list(self, namespace: Path = 'system'):
