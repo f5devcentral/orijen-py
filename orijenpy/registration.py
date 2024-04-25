@@ -2,8 +2,7 @@
 Module for Registration Methods
 https://docs.cloud.f5.com/docs/api/registration
 """
-from datetime import datetime
-from uplink import Consumer, QueryMap, Path, Body, json, get, post, put, delete # pylint: disable=unused-import
+from uplink import Consumer, Path, Body, json, get, post #pylint: disable=unused-import
 from orijenpy import helper
 
 @helper.common_decorators
@@ -57,26 +56,24 @@ class Registration(Consumer):
             "state": state,
             "passport" : passport
     }
-    
+
     @staticmethod
-    def _get_reg_name(object: str) -> str:
+    def _get_reg_name(obj: str) -> str:
         """
         Takes a registration object, returns the name
         """
-        return object['name']
-    
+        return obj['name']
+
     @staticmethod
-    def _get_passport(object: dict) -> dict:
+    def _get_passport(obj: dict) -> dict:
         """
         Takes a registration object, returns the passport
         """
-        return object['get_spec']['passport']
-    
+        return obj['get_spec']['passport']
+
     @staticmethod
-    def _get_cluster_name(object: str) -> str:
+    def _get_cluster_name(obj: str) -> str:
         """
         Takes a registration object, returns the passport
         """
-        return object['get_spec']['passport']['cluster_name']
-    
-    
+        return obj['get_spec']['passport']['cluster_name']

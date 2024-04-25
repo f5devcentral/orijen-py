@@ -7,7 +7,7 @@ from orijenpy import helper
 class Cert(Consumer):
     """Class for Certificates"""
     def __init__(self, session):
-        super(Cert, self).__init__(base_url=session._tenant_url, client=session._session)
+        super().__init__(base_url=session._tenant_url, client=session._session)
 
     @get('/api/config/namespaces/{namespace}/certificates')
     def list(self, namespace: Path):
@@ -34,7 +34,10 @@ class Cert(Consumer):
 
     @staticmethod
     def create_payload(name: str, namespace: str, cert: str, key: str, description: str = None, ):
-        """Payload for create or replace"""
+        """
+        Payload for create or replace cert
+        {cert} and {key} must be b64 encoded
+        """
         return {
             'metadata': {
                 'name': name,
@@ -53,7 +56,7 @@ class Cert(Consumer):
 
     @staticmethod
     def delete_payload(name: str, namespace: str, fail_if_referred: bool = True):
-        """Payload for create or replace"""
+        """Payload for delete"""
         return {
             "fail_if_referred": fail_if_referred,
             "name": name,
