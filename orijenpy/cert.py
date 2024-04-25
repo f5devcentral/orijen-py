@@ -33,21 +33,21 @@ class Cert(Consumer):
         """Delete a Certificate"""
 
     @staticmethod
-    def create_payload(name: str, namespace: str, cert: str, key: str, description: str = None, ):
+    def create_payload(name: str, namespace: str, cert: str, key: str):
         """
         Payload for create or replace cert
         {cert} and {key} must be b64 encoded
         """
         return {
+            'namespace': namespace,
             'metadata': {
                 'name': name,
-                'namespace': namespace,
-                'description': description
+                'disable': False
             },
             'spec': {
                 'certificate_url': f'string:///{cert}',
                 'private_key': {
-                    '"clear_secret_info":': {
+                    'clear_secret_info': {
                         'url': f'string:///{key}'
                     }
                 }
