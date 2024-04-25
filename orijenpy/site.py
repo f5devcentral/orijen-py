@@ -8,16 +8,16 @@ from orijenpy import helper
 @helper.common_decorators
 class Site(Consumer):
     """
-    Class for Tenant Methods
+    Class for Site Methods
     """
     def __init__(self, session):
         super().__init__(base_url=session._tenant_url, client=session._session)
 
     @get('/api/config/namespaces/{namespace}/sites')
-    def list(self, namespace: Path ='system'):
+    def list(self, namespace: Path ='system', report_fields: Query = None, report_status_fields: Query = None ):
         """List Sites"""
 
-    @get('/api/config/namespaces/{namespace}/sites{name}')
+    @get('/api/config/namespaces/{namespace}/sites/{name}')
     def get(self, name: Path, namespace: Path ='system'):
         """Get a single Site"""
 
@@ -37,6 +37,14 @@ class Site(Consumer):
         Use upgrade_payload() to build Body
         """
 
+    @json
+    @post('/api/register/namespaces/{namespace}/site/{name}/state')
+    def state(self, payload: Body, name: Path, namespace: Path ='system'):
+        """
+        Update site state
+        Use state_payload() to build Body
+        """
+
     @staticmethod
     def upgrade_payload(name: str, version: str, namespace: str = 'system') -> dict:
         """
@@ -48,4 +56,15 @@ class Site(Consumer):
             "name": name,
             "namespace": namespace,
             "version": version
+        }
+
+    @staticmethod
+    def state_payload(name: str, namespace: str = 'system', state = 'DECOMMISSIONING') -> dict:
+        """
+        Payload for decom_site
+        """
+        return {
+            "name": name,
+            "namespace": namespace,
+            "state": state
         }
