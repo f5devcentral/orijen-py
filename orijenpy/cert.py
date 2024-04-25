@@ -19,17 +19,17 @@ class Cert(Consumer):
 
     @json
     @post('/api/config/namespaces/{namespace}/certificates')
-    def create(self, payload: Body, namespace: Path, ):
+    def create(self, payload: Body, namespace: Path):
         """Create a Certificate"""
 
     @json
     @put('/api/config/namespaces/{namespace}/certificates/{name}')
-    def replace(self, payload: Body, name: Path, namespace: Path, ):
+    def replace(self, payload: Body, name: Path, namespace: Path):
         """Replace a Certificate"""
 
     @json
     @delete('/api/config/namespaces/{namespace}/certificates/{name}')
-    def delete(self, payload: Body, name: Path, namespace: Path, ):
+    def delete(self, payload: Body, name: Path, namespace: Path):
         """Delete a Certificate"""
 
     @staticmethod
