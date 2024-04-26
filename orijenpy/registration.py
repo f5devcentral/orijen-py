@@ -58,11 +58,18 @@ class Registration(Consumer):
     }
 
     @staticmethod
-    def _get_reg_name(obj: str) -> str:
+    def _get_reg_name(obj: dict) -> str:
         """
         Takes a registration object, returns the name
         """
         return obj['name']
+    
+    @staticmethod
+    def _get_reg_token(obj: dict) -> str:
+        """
+        Takes a registration object, returns the name
+        """
+        return obj['get_spec']['token']
 
     @staticmethod
     def _get_passport(obj: dict) -> dict:
@@ -72,7 +79,7 @@ class Registration(Consumer):
         return obj['get_spec']['passport']
 
     @staticmethod
-    def _get_cluster_name(obj: str) -> str:
+    def _get_cluster_name(obj: dict) -> str:
         """
         Takes a registration object, returns the passport
         """
