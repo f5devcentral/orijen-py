@@ -39,9 +39,9 @@ class Cert(Consumer):
         {cert} and {key} must be b64 encoded
         """
         return {
-            'namespace': namespace,
             'metadata': {
                 'name': name,
+                'namespace': namespace,
                 'disable': False
             },
             'spec': {
@@ -53,6 +53,7 @@ class Cert(Consumer):
                 }
             }
         }
+    
 
     @staticmethod
     def delete_payload(name: str, namespace: str, fail_if_referred: bool = True):
